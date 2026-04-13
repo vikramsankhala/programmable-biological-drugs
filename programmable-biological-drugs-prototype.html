@@ -182,8 +182,15 @@
 
     .figure-slot{margin-top:var(--space-10)}
     .figure-panel{margin:0;border:1px solid var(--color-border);border-radius:var(--radius-xl);overflow:hidden;background:color-mix(in oklab,var(--color-surface) 80%,transparent)}
-    .figure-panel-placeholder{min-height:clamp(10rem,28vw,16rem);display:grid;place-items:center;background:color-mix(in oklab,var(--color-surface-2) 70%,transparent);color:var(--color-text-faint);font-size:var(--text-xs);letter-spacing:.12em;text-transform:uppercase;border-bottom:1px dashed var(--color-border)}
+    .figure-panel-inner{padding:var(--space-5);background:color-mix(in oklab,var(--color-surface-2) 45%,transparent);border-bottom:1px solid var(--color-divider)}
+    .figure-panel-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-3)}
+    .figure-subpanel{border:1px solid var(--color-border);border-radius:var(--radius-md);padding:var(--space-3);background:color-mix(in oklab,var(--color-bg) 35%,transparent)}
+    .figure-subpanel .fp-label{font-size:var(--text-xs);text-transform:uppercase;letter-spacing:.12em;color:var(--color-text-faint);margin-bottom:var(--space-2)}
+    .figure-subpanel svg{width:100%;height:auto;display:block;color:var(--color-primary)}
+    .figure-subpanel:nth-child(2) svg{color:var(--color-secondary)}
+    .figure-subpanel:nth-child(3) svg{color:var(--color-primary)}
     .figure-panel figcaption{padding:var(--space-4) var(--space-5);font-size:var(--text-sm);color:var(--color-text-muted);line-height:1.55}
+    @media (max-width: 900px){.figure-panel-grid{grid-template-columns:1fr}}
 
     .consort-wrap{margin-top:var(--space-12)}
     .consort-title{font-family:var(--font-display);font-size:var(--text-xl);margin-bottom:var(--space-2)}
@@ -195,6 +202,7 @@
     .consort-table th{font-size:var(--text-xs);text-transform:uppercase;letter-spacing:.1em;color:var(--color-text-faint);font-weight:600;background:color-mix(in oklab,var(--color-surface-2) 60%,transparent)}
     .consort-table tbody tr:last-child td{border-bottom:none}
     .consort-table .num{font-variant-numeric:tabular-nums;font-family:ui-monospace,'Cascadia Code',monospace;font-size:0.85em}
+    .consort-foot{margin-top:var(--space-4);padding:var(--space-4);border-radius:var(--radius-md);border:1px dashed var(--color-border);font-size:var(--text-xs);color:var(--color-text-faint);line-height:1.55;max-width:100%}
 
     .citation-layer{margin-top:var(--space-12);padding:var(--space-6);border:1px solid var(--color-border);border-radius:var(--radius-xl);background:color-mix(in oklab,var(--color-surface) 78%,transparent)}
     .citation-layer h3{font-family:var(--font-display);font-size:var(--text-lg);margin-bottom:var(--space-4)}
@@ -770,64 +778,123 @@
 
           <div class="figure-slot" data-reveal>
             <figure class="figure-panel">
-              <div class="figure-panel-placeholder" role="img" aria-label="Placeholder region for mechanism or pathway figure panels">Figure panel region</div>
-              <figcaption>Mount multi-panel schematics, dose–pathway cartoons, or trial schema here. Captions support extended legend text for mechanistic and quantitative readouts without reflow of surrounding narrative.</figcaption>
+              <div class="figure-panel-inner">
+                <div class="figure-panel-grid" role="group" aria-label="Sample multi-panel figure: biomarker inputs, logic gate, therapeutic output">
+                  <div class="figure-subpanel">
+                    <div class="fp-label">(a) Biomarker streams</div>
+                    <svg viewBox="0 0 220 110" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                      <rect x="18" y="18" width="184" height="74" fill="none" stroke="currentColor" stroke-width="1" opacity="0.35"/>
+                      <line x1="28" y1="88" x2="192" y2="88" stroke="currentColor" stroke-width="0.6" opacity="0.4"/>
+                      <line x1="28" y1="88" x2="28" y2="28" stroke="currentColor" stroke-width="0.6" opacity="0.4"/>
+                      <path d="M38 72 L72 58 L108 52 L142 38 L178 42 L202 28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                      <path d="M38 82 L78 74 L118 68 L158 62 L198 50" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.55"/>
+                      <circle cx="142" cy="38" r="3" fill="currentColor" opacity="0.9"/>
+                      <circle cx="158" cy="62" r="3" fill="currentColor" opacity="0.5"/>
+                    </svg>
+                  </div>
+                  <div class="figure-subpanel">
+                    <div class="fp-label">(b) Logic coincidence</div>
+                    <svg viewBox="0 0 220 110" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                      <line x1="12" y1="32" x2="68" y2="32" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                      <line x1="12" y1="78" x2="68" y2="78" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                      <text x="14" y="26" fill="currentColor" font-size="9" opacity="0.65">A</text>
+                      <text x="14" y="98" fill="currentColor" font-size="9" opacity="0.65">B</text>
+                      <path d="M68 22 L68 88 L118 88 Q168 55 118 22 Z" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="2"/>
+                      <text x="88" y="56" fill="currentColor" font-size="10" font-weight="700" opacity="0.85">AND</text>
+                      <line x1="168" y1="55" x2="208" y2="55" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                      <polygon points="200,50 210,55 200,60" fill="currentColor"/>
+                    </svg>
+                  </div>
+                  <div class="figure-subpanel">
+                    <div class="fp-label">(c) Therapeutic output</div>
+                    <svg viewBox="0 0 220 110" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                      <ellipse cx="70" cy="55" rx="38" ry="32" fill="none" stroke="currentColor" stroke-width="1.8" opacity="0.5"/>
+                      <circle cx="70" cy="55" r="14" fill="currentColor" fill-opacity="0.12" stroke="currentColor" stroke-width="1.5"/>
+                      <path d="M108 55 L165 40" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                      <path d="M108 55 L168 70" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
+                      <rect x="168" y="28" width="42" height="44" rx="6" fill="currentColor" fill-opacity="0.1" stroke="currentColor" stroke-width="1.5"/>
+                      <text x="189" y="56" text-anchor="middle" fill="currentColor" font-size="8" opacity="0.8">IFNγ</text>
+                      <text x="189" y="68" text-anchor="middle" fill="currentColor" font-size="7" opacity="0.6">payload</text>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+              <figcaption><strong>Figure 1 (sample).</strong> Multi-panel schematic aligned to the page narrative: <em>(a)</em> concurrent biomarker trajectories (illustrative axes); <em>(b)</em> coincidence logic before licensing downstream signaling; <em>(c)</em> localized effector output (e.g., cytokine or cytolytic program). Replace SVG blocks with publication-ready vector art or embedded PNG grids; panel letters and legend text can track cross-references in the citation list (e.g., “Fig.&nbsp;1b” → [6]).</figcaption>
             </figure>
           </div>
 
           <div class="consort-wrap" data-reveal>
             <h3 class="consort-title" id="primary-outcome-table">Primary outcome table (CONSORT-aligned scaffold)</h3>
-            <p class="consort-note">Replace enrollment and outcome cells with protocol-defined analysis sets (ITT, mITT, per-protocol), arm sizes, estimand language, and primary/secondary results. Add footnotes for missing data and sensitivity analyses as in CONSORT 2010 extensions where applicable.</p>
+            <p class="consort-note">Below is a <strong>fully populated layout sample</strong> for arm-level reporting (hypothetical Phase 2–style program “BIOCODE-204”). Replace every cell with protocol-locked values, estimands, and analysis-set definitions before any regulatory use.</p>
             <div class="table-scroll">
               <table class="consort-table" aria-describedby="primary-outcome-table">
-                <caption>Illustrative layout only — not trial data</caption>
+                <caption>Illustrative arm-level results — hypothetical trial BIOCODE-204 (not real data)</caption>
                 <thead>
                   <tr>
                     <th scope="col">Population / analysis set</th>
                     <th scope="col">Experimental (n)</th>
                     <th scope="col">Comparator (n)</th>
-                    <th scope="col">Primary endpoint</th>
+                    <th scope="col">Primary / key secondary</th>
                     <th scope="col">Effect estimate</th>
                     <th scope="col">Notes</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td>ITT — enrolled and dosed</td>
-                    <td class="num">—</td>
-                    <td class="num">—</td>
-                    <td>Time to first protocol-defined event</td>
-                    <td class="num">HR — (95% CI — to —)</td>
-                    <td>Interim vs final readout</td>
+                    <td>ITT — enrolled and dosed<sup>a</sup></td>
+                    <td class="num">124</td>
+                    <td class="num">62</td>
+                    <td>Progression-free survival (INV)</td>
+                    <td class="num">HR 0.62 (95% CI 0.41–0.94); <em>p</em> = 0.024</td>
+                    <td>Stratified log-rank; primary estimand per SAP §4.1</td>
                   </tr>
                   <tr>
-                    <td>mITT — biomarker-positive</td>
-                    <td class="num">—</td>
-                    <td class="num">—</td>
-                    <td>Objective response (RECIST 1.1)</td>
-                    <td class="num">—%</td>
-                    <td>Blinded central review</td>
+                    <td>mITT — dual-biomarker positive<sup>b</sup></td>
+                    <td class="num">89</td>
+                    <td class="num">44</td>
+                    <td>Objective response (RECIST 1.1, BICR)</td>
+                    <td class="num">34% vs 12%; Δ 22% (95% CI 9–35)</td>
+                    <td>Confirmed responses at week 18</td>
                   </tr>
                   <tr>
-                    <td>Safety analysis set</td>
-                    <td class="num">—</td>
-                    <td class="num">—</td>
-                    <td>Grade ≥3 TRAEs</td>
-                    <td class="num">—%</td>
-                    <td>MedDRA preferred terms</td>
+                    <td>Per-protocol — completed 6 cycles</td>
+                    <td class="num">102</td>
+                    <td class="num">55</td>
+                    <td>Duration of response (median)</td>
+                    <td class="num">9.4 mo vs 4.1 mo</td>
+                    <td>Kaplan–Meier; Brookmeyer–Crowley CI</td>
+                  </tr>
+                  <tr>
+                    <td>Safety analysis set — as-treated</td>
+                    <td class="num">124</td>
+                    <td class="num">62</td>
+                    <td>Grade ≥3 TRAEs (any cause)</td>
+                    <td class="num">41% vs 28%</td>
+                    <td>CRS grade ≥2: 18% vs 0%; no G5 events</td>
+                  </tr>
+                  <tr>
+                    <td>Health-related QoL (ITT)</td>
+                    <td class="num">118</td>
+                    <td class="num">59</td>
+                    <td>Global health score Δ week 12 vs baseline</td>
+                    <td class="num">+6.8 vs +1.2 (LS mean diff)</td>
+                    <td>EORTC QLQ-C30 v3</td>
                   </tr>
                 </tbody>
               </table>
             </div>
+            <p class="consort-foot"><sup>a</sup> One patient in the experimental arm did not receive product (randomized in error); counted in ITT per policy. <sup>b</sup> Pre-specified threshold for both tissue and circulating markers; sensitivity ITT analysis HR 0.71 (0.49–1.03) reported in appendix (not shown). Missing RECIST week 18 assessments imputed as non-response per SAP.</p>
           </div>
 
           <aside class="citation-layer" data-reveal aria-labelledby="citations-heading">
-            <h3 id="citations-heading">References (citation layer)</h3>
+            <h3 id="citations-heading">References (citation layer — sample)</h3>
             <ol class="citation-list">
-              <li id="ref-1">Schulz KF, Altman DG, Moher D; CONSORT Group. CONSORT 2010 Statement: updated guidelines for reporting parallel group randomised trials. <em>BMJ</em>. 2010;340:c332. <a href="https://www.bmj.com/content/340/bmj.c332" rel="noopener noreferrer">bmj.com/content/340/bmj.c332</a></li>
-              <li id="ref-2">ICH E9(R1). Addendum on estimands and sensitivity analysis in clinical trials. International Council for Harmonisation; 2019. <span class="num">(link per sponsor SOP)</span></li>
-              <li id="ref-3">Placeholder: primary manuscript or preprint for intervention-specific pharmacology and translational biomarkers.</li>
-              <li id="ref-4">Placeholder: regulatory correspondence or briefing document excerpt supporting indication and control strategy.</li>
+              <li id="ref-1">Schulz KF, Altman DG, Moher D; CONSORT Group. CONSORT 2010 Statement: updated guidelines for reporting parallel group randomised trials. <em>BMJ</em>. 2010;340:c332. <a href="https://www.bmj.com/content/340/bmj.c332" rel="noopener noreferrer">doi:10.1136/bmj.c332</a></li>
+              <li id="ref-2">International Council for Harmonisation. ICH E9(R1) Statistical Principles for Clinical Trials: addendum on estimands and sensitivity analysis. 2019. <a href="https://database.ich.org/sites/default/files/E9-R1_Step4_Guideline_2019_1203.pdf" rel="noopener noreferrer">ICH E9(R1) Step 4 PDF</a></li>
+              <li id="ref-3">Eisenhauer EA, Therasse P, Bogaerts J, et al. New response evaluation criteria in solid tumours: revised RECIST guideline (version 1.1). <em>Eur J Cancer</em>. 2009;45(2):228-247. <a href="https://doi.org/10.1016/j.ejca.2008.10.026" rel="noopener noreferrer">doi:10.1016/j.ejca.2008.10.026</a></li>
+              <li id="ref-4">June CH, Sadelain M. Chimeric antigen receptor immunotherapy for human cancer. <em>Science</em>. 2018;359(6382):1361-1365. <a href="https://doi.org/10.1126/science.aar6517" rel="noopener noreferrer">doi:10.1126/science.aar6517</a></li>
+              <li id="ref-5">Rosenberg SA, Restifo NP. Adoptive cell transfer as personalized immunotherapy for human cancer. <em>Science</em>. 2015;348(6230):62-68. <a href="https://doi.org/10.1126/science.aaa4967" rel="noopener noreferrer">doi:10.1126/science.aaa4967</a></li>
+              <li id="ref-6"><strong>Fictitious registry entry for layout only:</strong> BIOCODE-204: A randomized phase 2 study of gated cellular therapy plus standard of care versus standard of care in advanced solid tumors. <em>IllustrativeClinicalTrials.gov</em> identifier NCT00000000 (placeholder — replace with real NCT).</li>
             </ol>
           </aside>
         </div>
