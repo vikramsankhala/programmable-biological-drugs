@@ -173,9 +173,34 @@
     .research-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--space-5)}
     .research-card{padding:var(--space-6);border-radius:var(--radius-xl);border:1px solid var(--color-border);background:linear-gradient(180deg,color-mix(in oklab,var(--color-surface) 76%,transparent),color-mix(in oklab,var(--color-surface-2) 84%,transparent));display:grid;gap:var(--space-4)}
     .research-card header{display:flex;justify-content:space-between;gap:var(--space-4);align-items:start}
-    .research-card h3{font-size:var(--text-lg);max-width:18ch}
+    .research-card h3{font-size:var(--text-lg);max-width:22ch;line-height:1.2}
     .tag{display:inline-flex;align-items:center;padding:var(--space-2) var(--space-3);border-radius:var(--radius-full);font-size:var(--text-xs);text-transform:uppercase;letter-spacing:.12em;background:color-mix(in oklab,var(--color-secondary) 14%,transparent);color:var(--color-secondary)}
-    .research-card p{color:var(--color-text-muted)}
+    .research-card-clinical{margin:0;padding:var(--space-4) 0 0;border-top:1px solid var(--color-divider);display:grid;gap:var(--space-4)}
+    .clinical-row{display:grid;gap:var(--space-1)}
+    .research-card-clinical dt{font-size:var(--text-xs);text-transform:uppercase;letter-spacing:.14em;color:var(--color-text-faint);font-weight:600}
+    .research-card-clinical dd{margin:0;font-size:var(--text-sm);color:var(--color-text-muted);line-height:1.55}
+
+    .figure-slot{margin-top:var(--space-10)}
+    .figure-panel{margin:0;border:1px solid var(--color-border);border-radius:var(--radius-xl);overflow:hidden;background:color-mix(in oklab,var(--color-surface) 80%,transparent)}
+    .figure-panel-placeholder{min-height:clamp(10rem,28vw,16rem);display:grid;place-items:center;background:color-mix(in oklab,var(--color-surface-2) 70%,transparent);color:var(--color-text-faint);font-size:var(--text-xs);letter-spacing:.12em;text-transform:uppercase;border-bottom:1px dashed var(--color-border)}
+    .figure-panel figcaption{padding:var(--space-4) var(--space-5);font-size:var(--text-sm);color:var(--color-text-muted);line-height:1.55}
+
+    .consort-wrap{margin-top:var(--space-12)}
+    .consort-title{font-family:var(--font-display);font-size:var(--text-xl);margin-bottom:var(--space-2)}
+    .consort-note{font-size:var(--text-sm);color:var(--color-text-muted);margin-bottom:var(--space-4);max-width:70ch}
+    .table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--color-border);border-radius:var(--radius-lg);background:color-mix(in oklab,var(--color-surface) 82%,transparent)}
+    .consort-table{width:100%;border-collapse:collapse;font-size:var(--text-sm);min-width:36rem}
+    .consort-table caption{caption-side:top;text-align:left;padding:var(--space-3) var(--space-4);font-size:var(--text-xs);text-transform:uppercase;letter-spacing:.12em;color:var(--color-text-faint)}
+    .consort-table th,.consort-table td{padding:var(--space-3) var(--space-4);text-align:left;border-bottom:1px solid var(--color-divider);vertical-align:top}
+    .consort-table th{font-size:var(--text-xs);text-transform:uppercase;letter-spacing:.1em;color:var(--color-text-faint);font-weight:600;background:color-mix(in oklab,var(--color-surface-2) 60%,transparent)}
+    .consort-table tbody tr:last-child td{border-bottom:none}
+    .consort-table .num{font-variant-numeric:tabular-nums;font-family:ui-monospace,'Cascadia Code',monospace;font-size:0.85em}
+
+    .citation-layer{margin-top:var(--space-12);padding:var(--space-6);border:1px solid var(--color-border);border-radius:var(--radius-xl);background:color-mix(in oklab,var(--color-surface) 78%,transparent)}
+    .citation-layer h3{font-family:var(--font-display);font-size:var(--text-lg);margin-bottom:var(--space-4)}
+    .citation-list{margin:0;padding-left:1.25rem;display:grid;gap:var(--space-3);font-size:var(--text-sm);color:var(--color-text-muted);line-height:1.5}
+    .citation-list li{padding-left:var(--space-2)}
+    .citation-list a{color:var(--color-primary);text-decoration:underline;text-underline-offset:2px}
 
     .timeline{display:grid;gap:var(--space-4)}
     .time-row{display:grid;grid-template-columns:12rem 1fr;gap:var(--space-5);padding:var(--space-5) 0;border-top:1px solid var(--color-divider)}
@@ -189,11 +214,15 @@
     .cta-grid{display:grid;grid-template-columns:1fr auto;gap:var(--space-8);align-items:end;position:relative;z-index:1}
     .cta-grid h2{font-family:var(--font-display);font-size:var(--text-3xl);max-width:10ch}
     .cta-grid p{max-width:58ch;color:var(--color-text-muted);margin-top:var(--space-4)}
+    .cta-panel a{color:var(--color-text);text-decoration:underline;text-underline-offset:3px}
+    .cta-panel a:hover{color:var(--color-primary)}
+    .cta-panel code{font-family:ui-monospace,'Cascadia Code',monospace;font-size:0.88em;padding:0.12em 0.4em;border-radius:var(--radius-sm);background:color-mix(in oklab,var(--color-text-inverse) 14%,transparent);border:1px solid var(--color-border)}
 
     footer{padding:var(--space-8) 0 var(--space-12);border-top:1px solid var(--color-divider)}
     .footer-inner{width:var(--content);margin:0 auto;display:flex;justify-content:space-between;gap:var(--space-4);flex-wrap:wrap;color:var(--color-text-muted);font-size:var(--text-sm)}
 
-    [data-reveal]{opacity:0;transform:translateY(20px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1)}
+    /* Short, low-amplitude reveals so motion does not compete with tables or figures */
+    [data-reveal]{opacity:0;transform:translateY(8px);transition:opacity .32s cubic-bezier(.16,1,.3,1),transform .32s cubic-bezier(.16,1,.3,1)}
     [data-reveal].is-visible{opacity:1;transform:translateY(0)}
 
     @media (max-width: 1024px){
@@ -240,6 +269,7 @@
           <a href="#concept">Concept</a>
           <a href="#architecture">Architecture</a>
           <a href="#research">Research</a>
+          <a href="#evidence">Evidence</a>
           <a href="#frontier">Frontier</a>
         </nav>
         <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch theme">
@@ -394,30 +424,155 @@
                 <h3>Synthetic immunology circuits</h3>
                 <span class="tag">Oncology</span>
               </header>
-              <p>T cells engineered with multi-antigen logic so activation happens only when several tumor conditions are simultaneously true.</p>
+              <dl class="research-card-clinical">
+                <div class="clinical-row">
+                  <dt>Intervention class</dt>
+                  <dd>Autologous or allogeneic T-cell therapy with synthetic receptor logic (multi-input AND/OR gating on surface antigens and/or protease cleavage).</dd>
+                </div>
+                <div class="clinical-row">
+                  <dt>Biological rationale</dt>
+                  <dd>Restricts cytolytic or co-stimulatory output to combinatorial tumor microenvironment signatures, aiming to widen therapeutic index versus single-antigen CAR approaches.</dd>
+                </div>
+                <div class="clinical-row">
+                  <dt>Plausible indication anchor</dt>
+                  <dd>Solid tumors with heterogeneous antigen loss (e.g., ovarian, pancreatic) where multi-antigen coincidence is hypothesized to enrich tumor-specific activation.</dd>
+                </div>
+              </dl>
             </article>
             <article class="research-card" data-reveal>
               <header>
                 <h3>Closed-loop insulin systems</h3>
                 <span class="tag">Metabolic</span>
               </header>
-              <p>Gene networks that sense glucose in real time and autonomously adjust insulin output without external pump control.</p>
+              <dl class="research-card-clinical">
+                <div class="clinical-row">
+                  <dt>Intervention class</dt>
+                  <dd>In vivo gene circuit or encapsulated cell device encoding glucose-responsive insulin secretion (closed-loop endocrine substitute).</dd>
+                </div>
+                <div class="clinical-row">
+                  <dt>Biological rationale</dt>
+                  <dd>Continuous sensing of circulating glucose (or proxy metabolites) drives graded transgene output, reducing exposure during euglycemia and hypoglycemia risk versus fixed dosing.</dd>
+                </div>
+                <div class="clinical-row">
+                  <dt>Plausible indication anchor</dt>
+                  <dd>Type 1 diabetes with labile control or recurrent severe hypoglycemia despite optimized pump/ CGM regimens; adjunct or bridge to transplantation.</dd>
+                </div>
+              </dl>
             </article>
             <article class="research-card" data-reveal>
               <header>
                 <h3>Personalized mRNA oncology</h3>
                 <span class="tag">Vaccines</span>
               </header>
-              <p>Tumor-specific neoantigen payloads synthesized from biopsy sequencing to create highly individualized cancer vaccines.</p>
+              <dl class="research-card-clinical">
+                <div class="clinical-row">
+                  <dt>Intervention class</dt>
+                  <dd>Individualized neoantigen-encoding mRNA (or self-amplifying RNA) delivered via LNP or intranodal routes with defined immunostimulant backbone.</dd>
+                </div>
+                <div class="clinical-row">
+                  <dt>Biological rationale</dt>
+                  <dd>Aligns CD8<sup>+</sup> responses to tumor-specific missense frames predicted from exome and HLA typing; manufacturing batch tied to each patient’s mutanome.</dd>
+                </div>
+                <div class="clinical-row">
+                  <dt>Plausible indication anchor</dt>
+                  <dd>Adjuvant or minimal residual disease settings in high-mutation-burden cancers (e.g., melanoma, MSI-high colorectal) where peripheral T-cell expansion correlates with delayed relapse.</dd>
+                </div>
+              </dl>
             </article>
             <article class="research-card" data-reveal>
               <header>
                 <h3>Epigenome editors</h3>
                 <span class="tag">Genomics</span>
               </header>
-              <p>dCas9-based systems modulate gene expression without permanently cutting DNA, creating a reversible intervention layer.</p>
+              <dl class="research-card-clinical">
+                <div class="clinical-row">
+                  <dt>Intervention class</dt>
+                  <dd>Dead Cas (dCas) or nuclease-deficient editors fused to transcriptional activators or repressors targeted to promoter or enhancer elements.</dd>
+                </div>
+                <div class="clinical-row">
+                  <dt>Biological rationale</dt>
+                  <dd>Modulates chromatin accessibility and RNA output without double-strand breaks, offering a titratable, potentially reversible layer versus nuclease editing.</dd>
+                </div>
+                <div class="clinical-row">
+                  <dt>Plausible indication anchor</dt>
+                  <dd>Monogenic disorders with toxic gain-of-function transcription (e.g., selected neurodevelopmental or hepatic storage phenotypes) or oncology programs silencing oncofetal drivers.</dd>
+                </div>
+              </dl>
             </article>
           </div>
+        </div>
+      </section>
+
+      <section class="section" id="evidence">
+        <div class="container">
+          <div class="section-head" data-reveal>
+            <span class="eyebrow">Evidence architecture</span>
+            <h2>Figure panels, CONSORT-aligned outcomes, and citation layer.</h2>
+            <p class="lead">Structured slots that follow the <a href="#research">research cards</a> without reordering the page: swap in arm-level results, extend the reference list, or embed SVG/PNG figure grids—layout and section IDs stay stable for downstream publishing workflows.</p>
+          </div>
+
+          <div class="figure-slot" data-reveal>
+            <figure class="figure-panel">
+              <div class="figure-panel-placeholder" role="img" aria-label="Placeholder region for mechanism or pathway figure panels">Figure panel region</div>
+              <figcaption>Mount multi-panel schematics, dose–pathway cartoons, or trial schema here. Captions support extended legend text for mechanistic and quantitative readouts without reflow of surrounding narrative.</figcaption>
+            </figure>
+          </div>
+
+          <div class="consort-wrap" data-reveal>
+            <h3 class="consort-title" id="primary-outcome-table">Primary outcome table (CONSORT-aligned scaffold)</h3>
+            <p class="consort-note">Replace enrollment and outcome cells with protocol-defined analysis sets (ITT, mITT, per-protocol), arm sizes, estimand language, and primary/secondary results. Add footnotes for missing data and sensitivity analyses as in CONSORT 2010 extensions where applicable.</p>
+            <div class="table-scroll">
+              <table class="consort-table" aria-describedby="primary-outcome-table">
+                <caption>Illustrative layout only — not trial data</caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Population / analysis set</th>
+                    <th scope="col">Experimental (n)</th>
+                    <th scope="col">Comparator (n)</th>
+                    <th scope="col">Primary endpoint</th>
+                    <th scope="col">Effect estimate</th>
+                    <th scope="col">Notes</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>ITT — enrolled and dosed</td>
+                    <td class="num">—</td>
+                    <td class="num">—</td>
+                    <td>Time to first protocol-defined event</td>
+                    <td class="num">HR — (95% CI — to —)</td>
+                    <td>Interim vs final readout</td>
+                  </tr>
+                  <tr>
+                    <td>mITT — biomarker-positive</td>
+                    <td class="num">—</td>
+                    <td class="num">—</td>
+                    <td>Objective response (RECIST 1.1)</td>
+                    <td class="num">—%</td>
+                    <td>Blinded central review</td>
+                  </tr>
+                  <tr>
+                    <td>Safety analysis set</td>
+                    <td class="num">—</td>
+                    <td class="num">—</td>
+                    <td>Grade ≥3 TRAEs</td>
+                    <td class="num">—%</td>
+                    <td>MedDRA preferred terms</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <aside class="citation-layer" data-reveal aria-labelledby="citations-heading">
+            <h3 id="citations-heading">References (citation layer)</h3>
+            <ol class="citation-list">
+              <li id="ref-1">Schulz KF, Altman DG, Moher D; CONSORT Group. CONSORT 2010 Statement: updated guidelines for reporting parallel group randomised trials. <em>BMJ</em>. 2010;340:c332. <a href="https://www.bmj.com/content/340/bmj.c332" rel="noopener noreferrer">bmj.com/content/340/bmj.c332</a></li>
+              <li id="ref-2">ICH E9(R1). Addendum on estimands and sensitivity analysis in clinical trials. International Council for Harmonisation; 2019. <span class="num">(link per sponsor SOP)</span></li>
+              <li id="ref-3">Placeholder: primary manuscript or preprint for intervention-specific pharmacology and translational biomarkers.</li>
+              <li id="ref-4">Placeholder: regulatory correspondence or briefing document excerpt supporting indication and control strategy.</li>
+            </ol>
+          </aside>
         </div>
       </section>
 
@@ -469,7 +624,7 @@
                 <span class="eyebrow">Design direction</span>
                 <h2>Clinical framing first: indication-relevant biology, then mechanism, then modality.</h2>
                 <p>The narrative is ordered like a translational briefing—surface the disease context and unmet need, then walk from measurable inputs (circulating proteins, tissue biomarkers, gene-expression signatures, metabolic flux) through decision logic that mimics how engineered circuits gate therapeutic output, and only then enumerate delivery modalities (mRNA, viral vectors, lipid nanoparticles, ex vivo–expanded cellular products). That sequencing mirrors how clinicians and reviewers weigh claims: plausibility of sensing, specificity of the conditional response, and a credible path from pharmacodynamics to patient-relevant endpoints.</p>
-                <p>Visually, each block is intended to carry the density of a methods-aware audience without sacrificing scanability: layered “stack” language parallels regulatory and IND-adjacent vocabulary (target product profile, critical quality attributes, control strategy), while research cards behave like abbreviated study narratives—intervention class, biological rationale, and plausible indication anchor—so the page can later absorb figure panels, CONSORT-style outcomes tables, or citation layers without restructuring the argument. Light and dark themes support extended reading of mechanistic copy; motion remains minimal so as not to compete with quantitative or pathway detail when those assets are added.</p>
+                <p>Visually, each block is intended to carry the density of a methods-aware audience without sacrificing scanability: layered “stack” language parallels regulatory and IND-adjacent vocabulary (target product profile, critical quality attributes, control strategy). Research cards now encode three labeled fields—<strong>intervention class</strong>, <strong>biological rationale</strong>, and <strong>plausible indication anchor</strong>—as a fixed <code>dl</code> pattern. The <a href="#evidence">Evidence</a> section provides a figure panel slot, a CONSORT-aligned outcomes table scaffold, and a numbered citation layer so those assets can ship without reordering sections. Light and dark themes support extended reading of mechanistic copy; on-scroll reveals use short, low-amplitude motion so tables and pathway figures remain the visual focus when populated.</p>
               </div>
               <a class="btn btn-primary" href="#top">Back to top</a>
             </div>
