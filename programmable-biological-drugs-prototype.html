@@ -208,6 +208,37 @@
     .time-row h3{font-size:var(--text-lg);margin-bottom:var(--space-2)}
     .time-row p{color:var(--color-text-muted)}
 
+    .case-study{background:color-mix(in oklab,var(--color-surface-offset) 55%,transparent)}
+    .case-intro{max-width:72ch;margin-bottom:var(--space-12);color:var(--color-text-muted);font-size:var(--text-lg);line-height:1.65}
+    .scenario-block{border:1px solid var(--color-border);border-radius:var(--radius-xl);padding:var(--space-6) var(--space-6) var(--space-8);margin-bottom:var(--space-10);background:linear-gradient(180deg,color-mix(in oklab,var(--color-surface) 88%,transparent),color-mix(in oklab,var(--color-surface-2) 82%,transparent));box-shadow:var(--shadow-sm)}
+    .scenario-head{display:flex;flex-wrap:wrap;gap:var(--space-4);align-items:baseline;justify-content:space-between;margin-bottom:var(--space-6);padding-bottom:var(--space-4);border-bottom:1px solid var(--color-divider)}
+    .scenario-id{font-family:var(--font-display);font-size:var(--text-2xl);color:var(--color-primary);min-width:3ch}
+    .scenario-head h3{font-size:var(--text-xl);flex:1;min-width:12ch;line-height:1.2}
+    .scenario-tag{font-size:var(--text-xs);text-transform:uppercase;letter-spacing:.14em;padding:var(--space-2) var(--space-3);border-radius:var(--radius-full);border:1px solid var(--color-border);color:var(--color-text-muted)}
+    .scenario-lead{color:var(--color-text-muted);font-size:var(--text-sm);line-height:1.6;margin-bottom:var(--space-6);max-width:75ch}
+    .steps-list{display:grid;gap:0;margin:0;padding:0;list-style:none;counter-reset:csstep}
+    .step-item{display:grid;grid-template-columns:auto 1fr;gap:var(--space-4) var(--space-5);padding:var(--space-5) 0;border-top:1px solid var(--color-divider);position:relative}
+    .step-item:first-of-type{border-top:none;padding-top:0}
+    .step-marker{display:flex;flex-direction:column;align-items:center;gap:var(--space-2)}
+    .step-num{width:2.5rem;height:2.5rem;border-radius:50%;border:2px solid var(--color-primary);display:grid;place-items:center;font-family:var(--font-display);font-size:var(--text-sm);color:var(--color-primary);background:var(--color-primary-highlight)}
+    .step-rail{width:2px;flex:1;min-height:var(--space-6);background:linear-gradient(180deg,var(--color-primary),transparent);opacity:.35;margin-bottom:calc(-1 * var(--space-5))}
+    .step-item:last-child .step-rail{display:none}
+    .step-body{display:grid;gap:var(--space-3)}
+    .step-phase{display:inline-flex;align-items:center;gap:var(--space-2);font-size:var(--text-xs);text-transform:uppercase;letter-spacing:.14em;font-weight:600;width:fit-content;padding:var(--space-1) var(--space-3);border-radius:var(--radius-full)}
+    .step-phase.sense{background:color-mix(in oklab,var(--color-primary) 16%,transparent);color:var(--color-primary)}
+    .step-phase.compute{background:color-mix(in oklab,var(--color-secondary) 16%,transparent);color:var(--color-secondary)}
+    .step-phase.respond{background:color-mix(in oklab,var(--color-text-faint) 22%,transparent);color:var(--color-text)}
+    .step-body h4{font-size:var(--text-lg);line-height:1.25}
+    .step-body p{color:var(--color-text-muted);font-size:var(--text-sm);line-height:1.6;margin:0}
+    .step-map{font-size:var(--text-xs);color:var(--color-text-faint);letter-spacing:.04em;border-left:3px solid var(--color-border);padding-left:var(--space-3);margin-top:var(--space-1)}
+    .step-map a{color:var(--color-primary);text-decoration:underline;text-underline-offset:2px}
+
+    @media (max-width: 720px){
+      .step-item{grid-template-columns:1fr;gap:var(--space-3)}
+      .step-rail{display:none!important}
+      .step-marker{flex-direction:row;justify-content:flex-start}
+    }
+
     .cta{padding-bottom:var(--space-24)}
     .cta-panel{position:relative;overflow:hidden;border-radius:calc(var(--radius-xl) + .5rem);padding:clamp(var(--space-8),6vw,var(--space-16));background:linear-gradient(135deg,color-mix(in oklab,var(--color-primary) 22%,var(--color-surface)),color-mix(in oklab,var(--color-secondary) 20%,var(--color-surface)));border:1px solid var(--color-border);box-shadow:var(--shadow-lg)}
     .cta-panel::after{content:"";position:absolute;inset:auto -8% -20% auto;width:18rem;height:18rem;background:radial-gradient(circle,color-mix(in oklab,var(--color-secondary) 24%,transparent),transparent 68%)}
@@ -268,6 +299,7 @@
           <a href="index.html">Main story</a>
           <a href="#concept">Concept</a>
           <a href="#architecture">Architecture</a>
+          <a href="#case-study">Case study</a>
           <a href="#research">Research</a>
           <a href="#evidence">Evidence</a>
           <a href="#frontier">Frontier</a>
@@ -408,6 +440,231 @@
               <div class="node"><small>Output action</small><strong>Therapeutic execution</strong><p>Localized release, genomic correction, cell activation, feedback control.</p></div>
             </div>
           </aside>
+        </div>
+      </section>
+
+      <section class="section case-study" id="case-study">
+        <div class="container">
+          <div class="section-head" data-reveal>
+            <span class="eyebrow">End-to-end walkthrough</span>
+            <h2>Case study: how this prototype behaves as a programmable therapeutic storyboard.</h2>
+            <p class="lead">Four scenarios walk from clinic-like inputs through sense → compute → respond, then show how each step maps onto this page’s modules (research cards, evidence strip, design intent). Numbers are illustrative, not trial data.</p>
+          </div>
+          <p class="case-intro" data-reveal>You can read any scenario alone. Together they show a <strong>positive activation path</strong> (A–C), a <strong>withheld-output path</strong> (D), and how the same UI skeleton would accept real biomarker traces, protocol tables, and citations without rearranging sections.</p>
+
+          <article class="scenario-block" data-reveal aria-labelledby="scen-a-title">
+            <div class="scenario-head">
+              <span class="scenario-id" aria-hidden="true">A</span>
+              <h3 id="scen-a-title">Solid tumor: dual-antigen coincidence before CAR-T activation</h3>
+              <span class="scenario-tag">Synthetic immunology · positive path</span>
+            </div>
+            <p class="scenario-lead">A patient with refractory ovarian carcinoma is enrolled on a concept program using autologous T cells engineered with a two-input AND gate: surface antigen A, surface antigen B, and a tumor-protease-cleaved “arming” peptide must align before full CD3ζ signaling is engaged.</p>
+            <ol class="steps-list">
+              <li class="step-item">
+                <div class="step-marker">
+                  <span class="step-num">1</span>
+                  <span class="step-rail" aria-hidden="true"></span>
+                </div>
+                <div class="step-body">
+                  <span class="step-phase sense">Sense</span>
+                  <h4>Baseline staging and input streams</h4>
+                  <p>Imaging documents disease distribution; blood and ascites show soluble antigen A above a pre-specified floor. Biopsy RNA-seq supports antigen B transcript in tumor epithelium but not in adjacent normal tissue. Pharmacokinetic sampling establishes clearance of lymphodepletion therapy so the engineered product is not competing with residual alemtuzumab.</p>
+                  <p class="step-map"><strong>On this page:</strong> corresponds to <em>Sensor layer</em> in the hero panel and “Input state / biomarker stream” in the architecture diagram. In <a href="#research">Research tracks</a>, populate <strong>Intervention class</strong> and <strong>Biological rationale</strong> on the synthetic immunology card with these modalities.</p>
+                </div>
+              </li>
+              <li class="step-item">
+                <div class="step-marker">
+                  <span class="step-num">2</span>
+                  <span class="step-rail" aria-hidden="true"></span>
+                </div>
+                <div class="step-body">
+                  <span class="step-phase compute">Compute</span>
+                  <h4>Coincidence logic at the cell surface</h4>
+                  <p>After infusion, engineered cells traffic to tumor beds. The circuit requires (A_hi ∧ B_hi ∧ protease_active) within a dwell-time window; if only one antigen dominates, co-receptors remain phosphorylation-limited and the cell stays in a surveillance state with minimal cytokine release.</p>
+                  <p class="step-map"><strong>On this page:</strong> maps to <em>Logic kernel</em> in the hero and “Decision logic / circuit evaluation” in the diagram. The <a href="#concept">Sense · Compute · Respond</a> cards restate the same contract for a non-specialist audience.</p>
+                </div>
+              </li>
+              <li class="step-item">
+                <div class="step-marker">
+                  <span class="step-num">3</span>
+                  <span class="step-rail" aria-hidden="true"></span>
+                </div>
+                <div class="step-body">
+                  <span class="step-phase respond">Respond</span>
+                  <h4>Licensed cytolysis and measurable tumor dynamics</h4>
+                  <p>When the AND condition holds persistently, the construct engages full activation, granzyme release is localized to multi-antigen-positive clusters, and follow-up imaging at week 6 shows partial response by RECIST with declining CA-125.</p>
+                  <p class="step-map"><strong>On this page:</strong> aligns with <em>Therapeutic output</em> in the hero. Under <a href="#evidence">Evidence</a>, you would paste RECIST / CA-125 trajectories into the CONSORT-style table rows and attach the corresponding publication in the <strong>citation layer</strong>.</p>
+                </div>
+              </li>
+              <li class="step-item">
+                <div class="step-marker">
+                  <span class="step-num">4</span>
+                  <span class="step-rail" aria-hidden="true"></span>
+                </div>
+                <div class="step-body">
+                  <span class="step-phase sense">Sense · governance</span>
+                  <h4>Safety readouts close the loop</h4>
+                  <p>CRS grade and ferritin are monitored on a fixed schedule; if grade ≥2 CRS emerges, protocol holds further doses and adds tocilizumab per standard of care. The therapeutic “program” includes an institutional rule layer outside the gene circuit—still part of how the intervention operates in practice.</p>
+                  <p class="step-map"><strong>On this page:</strong> the safety row in the CONSORT scaffold and a footnote column in the same table capture this governance without a new section.</p>
+                </div>
+              </li>
+            </ol>
+          </article>
+
+          <article class="scenario-block" data-reveal aria-labelledby="scen-b-title">
+            <div class="scenario-head">
+              <span class="scenario-id" aria-hidden="true">B</span>
+              <h3 id="scen-b-title">Type 1 diabetes: glucose band drives graded insulin transgene output</h3>
+              <span class="scenario-tag">Closed-loop metabolic · branching</span>
+            </div>
+            <p class="scenario-lead">The same prototype page can narrate <em>two branches</em> from one intervention class: aggressive correction when glucose is high, and conservative withholding when glucose falls toward hypoglycemia.</p>
+            <ol class="steps-list">
+              <li class="step-item">
+                <div class="step-marker">
+                  <span class="step-num">1</span>
+                  <span class="step-rail" aria-hidden="true"></span>
+                </div>
+                <div class="step-body">
+                  <span class="step-phase sense">Sense</span>
+                  <h4>Continuous glucose telemetry as the primary input</h4>
+                  <p>A subcutaneous sensor stream (e.g., 5-minute intervals) feeds a control policy implemented partly in hardware and partly in the genetic program: interstitial glucose is calibrated against capillary checks during the first 72 hours post-implant.</p>
+                  <p class="step-map"><strong>On this page:</strong> the metabolic <a href="#research">research card</a> “Intervention class” names the encapsulated or in vivo circuit; “Biological rationale” explains graded output versus bolus insulin.</p>
+                </div>
+              </li>
+              <li class="step-item">
+                <div class="step-marker">
+                  <span class="step-num">2</span>
+                  <span class="step-rail" aria-hidden="true"></span>
+                </div>
+                <div class="step-body">
+                  <span class="step-phase compute">Compute</span>
+                  <h4>Branch A — hyperglycemia correction</h4>
+                  <p>When smoothed glucose exceeds the upper band for &gt;30 minutes, transcription of the insulin transgene ramps along a saturating curve; the circuit includes a leak term so basal expression is never strictly zero, avoiding complete metabolic silence.</p>
+                  <p class="step-map"><strong>On this page:</strong> diagram node “Decision logic” can be annotated in a future figure with two branches diverging from one comparator node.</p>
+                </div>
+              </li>
+              <li class="step-item">
+                <div class="step-marker">
+                  <span class="step-num">3</span>
+                  <span class="step-rail" aria-hidden="true"></span>
+                </div>
+                <div class="step-body">
+                  <span class="step-phase compute">Compute</span>
+                  <h4>Branch B — hypoglycemia protection</h4>
+                  <p>When glucose crosses below the lower band, the circuit applies rapid negative dominance: transgene output is suppressed within minutes, glucagon rescue remains available per protocol, and logging flags the event for clinician review.</p>
+                  <p class="step-map"><strong>On this page:</strong> a second row group in the <a href="#evidence">CONSORT-style table</a> could separate “efficacy estimand” vs “hypoglycemia avoidance” secondary endpoints without changing layout.</p>
+                </div>
+              </li>
+              <li class="step-item">
+                <div class="step-marker">
+                  <span class="step-num">4</span>
+                  <span class="step-rail" aria-hidden="true"></span>
+                </div>
+                <div class="step-body">
+                  <span class="step-phase respond">Respond</span>
+                  <h4>Time-in-range and rescue medication use</h4>
+                  <p>At month 3, CGM exports show increased time-in-range (70–180 mg/dL) versus the patient’s pre-implant baseline; severe hypoglycemia events are zero in the reporting window. Those become the headline outcomes in the evidence strip.</p>
+                  <p class="step-map"><strong>On this page:</strong> figure panel holds CGM ribbon plots; citation layer cites the protocol registration and statistical analysis plan.</p>
+                </div>
+              </li>
+            </ol>
+          </article>
+
+          <article class="scenario-block" data-reveal aria-labelledby="scen-c-title">
+            <div class="scenario-head">
+              <span class="scenario-id" aria-hidden="true">C</span>
+              <h3 id="scen-c-title">Personalized neoantigen mRNA: from biopsy to peripheral immune readout</h3>
+              <span class="scenario-tag">Vaccines · pipeline choreography</span>
+            </div>
+            <p class="scenario-lead">This scenario emphasizes <strong>steps that are not all biological computing</strong>—manufacturing, release testing, and clinical administration—but still fit the same sense/compute/respond narrative for the overall product story.</p>
+            <ol class="steps-list">
+              <li class="step-item">
+                <div class="step-marker">
+                  <span class="step-num">1</span>
+                  <span class="step-rail" aria-hidden="true"></span>
+                </div>
+                <div class="step-body">
+                  <span class="step-phase sense">Sense</span>
+                  <h4>Tumor and host sequencing define the antigen set</h4>
+                  <p>FFPE tumor and matched normal blood yield exome calls; neoantigen prediction ranks missense variants by HLA binding and RNA support. A clinical tumor board approves the final peptide list encoded into the GMP batch.</p>
+                  <p class="step-map"><strong>On this page:</strong> <strong>Plausible indication anchor</strong> on the mRNA oncology card names adjuvant or MRD contexts; sequencing is the upstream “sensor” before any drug product exists.</p>
+                </div>
+              </li>
+              <li class="step-item">
+                <div class="step-marker">
+                  <span class="step-num">2</span>
+                  <span class="step-rail" aria-hidden="true"></span>
+                </div>
+                <div class="step-body">
+                  <span class="step-phase compute">Compute</span>
+                  <h4>Batch release as a computational QC gate</h4>
+                  <p>Identity, potency (expression in reporter cells), and endotoxin specs must pass before vials ship. That gate is the industrial analogue of a biological AND: “batch ID correct ∧ potency ≥ threshold ∧ safety panel clear.”</p>
+                  <p class="step-map"><strong>On this page:</strong> optional callout box in a future figure could mirror the architecture diagram’s middle node, labeled “QC / release logic.”</p>
+                </div>
+              </li>
+              <li class="step-item">
+                <div class="step-marker">
+                  <span class="step-num">3</span>
+                  <span class="step-rail" aria-hidden="true"></span>
+                </div>
+                <div class="step-body">
+                  <span class="step-phase respond">Respond</span>
+                  <h4>Lymph-node delivery and ex vivo T-cell readout</h4>
+                  <p>Intranodal administration on days 0, 14, 28 is followed by apheresis at day 35. ELISpot against pooled peptides shows new IFN-γ spots versus baseline; tetramer staining enriches for CD8 populations specific to two encoded neoepitopes.</p>
+                  <p class="step-map"><strong>On this page:</strong> the <a href="#evidence">evidence table</a> gains rows for immunogenicity secondary endpoints; the figure slot holds ELISpot / tetramer panels with shared numbering to references [3]–[4] in the list.</p>
+                </div>
+              </li>
+            </ol>
+          </article>
+
+          <article class="scenario-block" data-reveal aria-labelledby="scen-d-title">
+            <div class="scenario-head">
+              <span class="scenario-id" aria-hidden="true">D</span>
+              <h3 id="scen-d-title">Epigenome editor: when the circuit intentionally does not fire</h3>
+              <span class="scenario-tag">Negative path · specificity</span>
+            </div>
+            <p class="scenario-lead">Programmable therapeutics need a credible <strong>off state</strong>. Here, dCas-repressor is targeted to a promoter implicated in a hepatic malignancy, but healthy hepatocytes express a low-level decoy transcript that fails the fold-change threshold.</p>
+            <ol class="steps-list">
+              <li class="step-item">
+                <div class="step-marker">
+                  <span class="step-num">1</span>
+                  <span class="step-rail" aria-hidden="true"></span>
+                </div>
+                <div class="step-body">
+                  <span class="step-phase sense">Sense</span>
+                  <h4>Single-cell RNA in adjacent normal shows sub-threshold target</h4>
+                  <p>Preclinical organoid data show target promoter activity in tumoroids but not in matched normal organoids when normalized to housekeeping expression.</p>
+                  <p class="step-map"><strong>On this page:</strong> the epigenome editor card’s <strong>Biological rationale</strong> cites reversibility; this step supplies the quantitative “why off-target tissue is ignored.”</p>
+                </div>
+              </li>
+              <li class="step-item">
+                <div class="step-marker">
+                  <span class="step-num">2</span>
+                  <span class="step-rail" aria-hidden="true"></span>
+                </div>
+                <div class="step-body">
+                  <span class="step-phase compute">Compute</span>
+                  <h4>Fold-change AND gate returns false in hepatocytes</h4>
+                  <p>In simulation and rodent studies, the ratio of tumor to normal promoter activity never crosses the AND threshold simultaneously with guide occupancy metrics, so the repressor module remains disengaged in healthy tissue.</p>
+                  <p class="step-map"><strong>On this page:</strong> diagram “circuit evaluation” is where a future pathway figure would show the failed branch in muted styling.</p>
+                </div>
+              </li>
+              <li class="step-item">
+                <div class="step-marker">
+                  <span class="step-num">3</span>
+                  <span class="step-rail" aria-hidden="true"></span>
+                </div>
+                <div class="step-body">
+                  <span class="step-phase respond">Respond</span>
+                  <h4>No clinical output change where logic is false</h4>
+                  <p>Liver enzymes remain stable; tumor-specific serum marker declines only after a separate combination agent is introduced—attributable to combination therapy, not spurious epigenetic silencing in normal liver.</p>
+                  <p class="step-map"><strong>On this page:</strong> CONSORT table notes column documents “no emergent hepatotoxicity signal”; citations link to IND-enabling tox package summaries.</p>
+                </div>
+              </li>
+            </ol>
+          </article>
+
+          <p class="scenario-lead" data-reveal style="margin-top:var(--space-4);border:1px dashed var(--color-border);border-radius:var(--radius-lg);padding:var(--space-5)"><strong>Using this case study with stakeholders:</strong> clinicians can follow scenarios A–D in order; engineers map each <em>step-map</em> line to a component they own (assay, vector, control software, statistics); regulatory writers lift the same headings into the briefing book while the public site keeps the shorter modules above. All paths assume fictional composite patients for illustration.</p>
         </div>
       </section>
 
