@@ -186,6 +186,7 @@
     .figure-panel-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-3)}
     .figure-subpanel{border:1px solid var(--color-border);border-radius:var(--radius-md);padding:var(--space-3);background:color-mix(in oklab,var(--color-bg) 35%,transparent)}
     .figure-subpanel .fp-label{font-size:var(--text-xs);text-transform:uppercase;letter-spacing:.12em;color:var(--color-text-faint);margin-bottom:var(--space-2)}
+    .figure-subpanel .fp-explain{margin:var(--space-3) 0 0;font-size:var(--text-xs);color:var(--color-text-muted);line-height:1.55}
     .figure-subpanel svg{width:100%;height:auto;display:block;color:var(--color-primary)}
     .figure-subpanel:nth-child(2) svg{color:var(--color-secondary)}
     .figure-subpanel:nth-child(3) svg{color:var(--color-primary)}
@@ -791,6 +792,7 @@
                       <circle cx="142" cy="38" r="3" fill="currentColor" opacity="0.9"/>
                       <circle cx="158" cy="62" r="3" fill="currentColor" opacity="0.5"/>
                     </svg>
+                    <p class="fp-explain">The upper curve stands in for a tumor-associated antigen or shed protein rising into a quantifiable reporting window; the lower curve can represent a second modality (e.g., inflammatory index or a second antigen). Markers denote time points where both signals are simultaneously above protocol thresholds—this is the <strong>sense</strong> layer that feeds the logic in panel (b).</p>
                   </div>
                   <div class="figure-subpanel">
                     <div class="fp-label">(b) Logic coincidence</div>
@@ -804,6 +806,7 @@
                       <line x1="168" y1="55" x2="208" y2="55" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
                       <polygon points="200,50 210,55 200,60" fill="currentColor"/>
                     </svg>
+                    <p class="fp-explain">Inputs <strong>A</strong> and <strong>B</strong> are binary or graded signals from panel (a). The <strong>AND</strong> gate means neither arm alone is sufficient to pass the gate: the therapeutic program only commits to an “on” state when the joint condition is met (optionally with dwell-time or kinetic filters not drawn here). The outgoing arrow is the permission signal for panel (c).</p>
                   </div>
                   <div class="figure-subpanel">
                     <div class="fp-label">(c) Therapeutic output</div>
@@ -816,10 +819,11 @@
                       <text x="189" y="56" text-anchor="middle" fill="currentColor" font-size="8" opacity="0.8">IFNγ</text>
                       <text x="189" y="68" text-anchor="middle" fill="currentColor" font-size="7" opacity="0.6">payload</text>
                     </svg>
+                    <p class="fp-explain">The ellipse represents a therapeutic cell or depot at the disease site. When the gate in (b) fires, the cell executes a <strong>respond</strong> program: here illustrated as IFN-γ (immune amplification readout) and a generic <strong>payload</strong> label for cytolysis, secreted biologic, or local gene-regulatory output. The faint second arrow suggests optional multi-lineage secretion or feedback to upstream sensors.</p>
                   </div>
                 </div>
               </div>
-              <figcaption><strong>Figure 1 (sample).</strong> Multi-panel schematic aligned to the page narrative: <em>(a)</em> concurrent biomarker trajectories (illustrative axes); <em>(b)</em> coincidence logic before licensing downstream signaling; <em>(c)</em> localized effector output (e.g., cytokine or cytolytic program). Replace SVG blocks with publication-ready vector art or embedded PNG grids; panel letters and legend text can track cross-references in the citation list (e.g., “Fig.&nbsp;1b” → [6]).</figcaption>
+              <figcaption><strong>Figure 1 (sample).</strong> Multi-panel schematic aligned to the page narrative: <em>(a)</em> concurrent biomarker trajectories (illustrative axes); <em>(b)</em> coincidence logic before licensing downstream signaling; <em>(c)</em> localized effector output (e.g., cytokine or cytolytic program). Explanations under each panel interpret the graphics for a clinical–translational reader.</figcaption>
             </figure>
           </div>
 
